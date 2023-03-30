@@ -11,6 +11,8 @@ $comments = json_decode($comments, true);
 
 require_once 'connect.php'; 
 
+
+
 foreach ($posts as $post){
     $stmt = $mysql->prepare("INSERT INTO posts(userId,id,title,body) VALUES (?,?,?,?)");
     $stmt->bind_param("iiss", $post['userId'], $post['id'], $post['title'], $post['body'] );

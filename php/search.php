@@ -4,11 +4,11 @@ require_once 'connect.php';
 $mysql->set_charset("utf8mb4"); // задаем кодировку
 
 if (isset($_POST["searchBtn"])){
-    $search = mysqli_real_escape_string($mysql ,$_POST["input"]);
-    $query = "SELECT posts.title, comments.body 
+   
+    $query = 'SELECT posts.title, comments.body 
             FROM posts, comments
             WHERE comments.body 
-            LIKE '%" . $search . "%'";
+            LIKE \'%' . $_POST["input"] . '%\'';
             
     $result = mysqli_query($mysql, $query);
 
