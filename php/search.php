@@ -8,7 +8,8 @@ if (isset($_POST["searchBtn"])){
     $query = 'SELECT posts.title, comments.body 
             FROM posts, comments
             WHERE comments.body 
-            LIKE \'%' . $_POST["input"] . '%\'';
+            LIKE \'%' . $_POST["input"] . '%\''
+            AND comments.postId = posts.id;
             
     $result = mysqli_query($mysql, $query);
 
